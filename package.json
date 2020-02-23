@@ -73,7 +73,6 @@
     "@commitlint/config-conventional": "^8.3.4",
     "babel-eslint": "^10.0.3",
     "babel-plugin-import-graphql": "^2.7.0",
-    "commitlint-config-gitmoji": "^1.0.1",
     "cz-conventional-changelog": "^3.1.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
