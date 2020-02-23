@@ -1,5 +1,4 @@
-// import { AuthenticationError } from 'apollo-server-koa';
-import reporter from 'core/logger';
+import { UserInputError, AuthenticationError } from 'apollo-server-micro';
 import {{camelCase name}}Service from './{{camelCase name}}.service';
 
 let {{camelCase name}};
@@ -10,9 +9,11 @@ const {{camelCase name}}Resolvers = {
       try {
         const {{camelCase name}}s = await {{camelCase name}}Service.get();
         return {{camelCase name}}s;
-      } catch (err) {
-        reporter.error('{{pascalCase name}}s fetch failed', err);
-        throw new Error(err);
+      } catch (error) {
+        throw new UserInputError('Wrong input provided', {
+          message: error.message,
+          stack: error.stack
+        });
       }
     },
     {{camelCase name}}: async (root, { _id }) => {
@@ -23,9 +24,11 @@ const {{camelCase name}}Resolvers = {
           }
         });
         return {{camelCase name}};
-      } catch (err) {
-        reporter.error('{{pascalCase name}} fetch failed', err);
-        throw new Error(err);
+      } catch (error) {
+        throw new UserInputError('Wrong input provided', {
+          message: error.message,
+          stack: error.stack
+        });
       }
     }
   },
@@ -36,9 +39,11 @@ const {{camelCase name}}Resolvers = {
           content
         });
         return {{camelCase name}};
-      } catch (err) {
-        reporter.error('{{pascalCase name}} create failed', err);
-        throw new Error(err);
+      } catch (error) {
+        throw new UserInputError('Wrong input provided', {
+          message: error.message,
+          stack: error.stack
+        });
       }
     },
     {{camelCase name}}Update: async (root, { _id, content }) => {
@@ -54,9 +59,11 @@ const {{camelCase name}}Resolvers = {
           }
         });
         return {{camelCase name}};
-      } catch (err) {
-        reporter.error('{{pascalCase name}} update failed', err);
-        throw new Error(err);
+      } catch (error) {
+        throw new UserInputError('Wrong input provided', {
+          message: error.message,
+          stack: error.stack
+        });
       }
     },
     {{camelCase name}}Delete: async (root, { _id }) => {
@@ -69,9 +76,11 @@ const {{camelCase name}}Resolvers = {
           }
         });
         return {{camelCase name}};
-      } catch (err) {
-        reporter.error('{{pascalCase name}} delete failed', err);
-        throw new Error(err);
+      } catch (error) {
+        throw new UserInputError('Wrong input provided', {
+          message: error.message,
+          stack: error.stack
+        });
       }
     }
   }
