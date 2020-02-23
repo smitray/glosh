@@ -1,0 +1,19 @@
+{
+    "eslint.enable": true,
+    "eslint.validate": [
+        "javascript",
+        "javascriptreact"
+    ],
+    "emmet.showAbbreviationSuggestions": true,
+    "emmet.showExpandedAbbreviation": "always",
+    "emmet.includeLanguages": {
+        "javascript": "javascriptreact"
+    },
+    "emmet.triggerExpansionOnTab": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": false,
+    "editor.tabSize": 2,
+    "editor.tabCompletion": "on",
+    "editor.snippetSuggestions": "top",
+    "typescript.validate.enable": false
+}

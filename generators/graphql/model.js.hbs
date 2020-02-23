@@ -1,0 +1,14 @@
+import mongoose from 'mongoose';
+import uniqueValidator from 'mongoose-unique-validator';
+import timestamp from 'mongoose-timestamp';
+
+const {{camelCase name}}Schema = new mongoose.Schema({
+  
+});
+
+{{camelCase name}}Schema.plugin(uniqueValidator);
+{{camelCase name}}Schema.plugin(timestamp);
+
+const {{camelCase name}}Model = mongoose.model('{{camelCase name}}Model', {{camelCase name}}Schema);
+
+export default {{camelCase name}}Model;

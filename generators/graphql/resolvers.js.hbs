@@ -1,0 +1,80 @@
+// import { AuthenticationError } from 'apollo-server-koa';
+import reporter from 'core/logger';
+import {{camelCase name}}Service from './{{camelCase name}}.service';
+
+let {{camelCase name}};
+
+const {{camelCase name}}Resolvers = {
+  Query: {
+    {{camelCase name}}s: async () => {
+      try {
+        const {{camelCase name}}s = await {{camelCase name}}Service.get();
+        return {{camelCase name}}s;
+      } catch (err) {
+        reporter.error('{{pascalCase name}}s fetch failed', err);
+        throw new Error(err);
+      }
+    },
+    {{camelCase name}}: async (root, { _id }) => {
+      try {
+        {{camelCase name}} = await {{camelCase name}}Service.single({
+          qr: {
+            _id
+          }
+        });
+        return {{camelCase name}};
+      } catch (err) {
+        reporter.error('{{pascalCase name}} fetch failed', err);
+        throw new Error(err);
+      }
+    }
+  },
+  Mutation: {
+    {{camelCase name}}Create: async (root, { content }) => {
+      try {
+        {{camelCase name}} = await {{camelCase name}}Service.create({
+          content
+        });
+        return {{camelCase name}};
+      } catch (err) {
+        reporter.error('{{pascalCase name}} create failed', err);
+        throw new Error(err);
+      }
+    },
+    {{camelCase name}}Update: async (root, { _id, content }) => {
+      try {
+        {{camelCase name}} = await {{camelCase name}}Service.put({
+          params: {
+            qr: {
+              _id
+            }
+          },
+          body: {
+            content
+          }
+        });
+        return {{camelCase name}};
+      } catch (err) {
+        reporter.error('{{pascalCase name}} update failed', err);
+        throw new Error(err);
+      }
+    },
+    {{camelCase name}}Delete: async (root, { _id }) => {
+      try {
+        {{camelCase name}} = await {{camelCase name}}Service.delete({
+          params: {
+            qr: {
+              _id
+            }
+          }
+        });
+        return {{camelCase name}};
+      } catch (err) {
+        reporter.error('{{pascalCase name}} delete failed', err);
+        throw new Error(err);
+      }
+    }
+  }
+};
+
+export default {{camelCase name}}Resolvers;

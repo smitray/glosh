@@ -1,0 +1,24 @@
+{{#if wantPropTypes}}
+import { Component } from 'react';
+import PropTypes from 'prop-types';
+{{else}}
+import { Component } from 'react';
+{{/if}}
+
+class {{ properCase name }} extends Component { // eslint-disable-line react/prefer-stateless-function
+  render() {
+    return (
+      <>
+        
+      </>
+    );
+  }
+}
+
+{{#if wantPropTypes}}
+{{ properCase name }}.propTypes = {
+
+};
+{{/if}}
+
+export default {{ properCase name }};
